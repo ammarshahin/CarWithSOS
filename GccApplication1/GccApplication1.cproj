@@ -203,9 +203,6 @@
     <Compile Include="Command\inc\Typedefs.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Command\inc\t_typedef.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="ECUAL\Dc_Motor\inc\DC_Motor.h">
       <SubType>compile</SubType>
     </Compile>

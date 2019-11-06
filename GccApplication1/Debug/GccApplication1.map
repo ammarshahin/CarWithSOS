@@ -82,7 +82,7 @@ Discarded input sections
  .text          0x00000000        0x0 App/CarDirection/src/CarDirection.o
  .data          0x00000000        0x0 App/CarDirection/src/CarDirection.o
  .bss           0x00000000        0x0 App/CarDirection/src/CarDirection.o
- .text.move_RotateLeft
+ .text.Move_RotateLeft
                 0x00000000       0x12 App/CarDirection/src/CarDirection.o
  .text.Stop     0x00000000        0xe App/CarDirection/src/CarDirection.o
  .text          0x00000000        0x0 ECUAL/Dc_Motor/src/DC_Motor.o
@@ -1032,18 +1032,18 @@ END GROUP
  .debug_abbrev  0x00000a9e      0x20b MCAL/Timers/src/Timers.o
  .debug_abbrev  0x00000ca9       0x6f Service/SwDelay/src/SwDelay.o
 
-.debug_line     0x00000000     0x14bf
+.debug_line     0x00000000     0x14c1
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x115 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_line    0x00000115      0x183 App/CarControl/src/CarControl.o
- .debug_line    0x00000298       0xf4 App/CarDirection/src/CarDirection.o
- .debug_line    0x0000038c      0x1e3 ECUAL/Dc_Motor/src/DC_Motor.o
- .debug_line    0x0000056f      0x168 ECUAL/Sw_ICU/src/Sw_ICU.o
- .debug_line    0x000006d7      0x124 ECUAL/Ultrasonic/src/Ultrasonic.o
- .debug_line    0x000007fb       0x6f main.o
- .debug_line    0x0000086a      0x5bc MCAL/Gpio/src/Gpio.o
- .debug_line    0x00000e26      0x616 MCAL/Timers/src/Timers.o
- .debug_line    0x0000143c       0x83 Service/SwDelay/src/SwDelay.o
+ .debug_line    0x00000298       0xf5 App/CarDirection/src/CarDirection.o
+ .debug_line    0x0000038d      0x1e4 ECUAL/Dc_Motor/src/DC_Motor.o
+ .debug_line    0x00000571      0x168 ECUAL/Sw_ICU/src/Sw_ICU.o
+ .debug_line    0x000006d9      0x124 ECUAL/Ultrasonic/src/Ultrasonic.o
+ .debug_line    0x000007fd       0x6f main.o
+ .debug_line    0x0000086c      0x5bc MCAL/Gpio/src/Gpio.o
+ .debug_line    0x00000e28      0x616 MCAL/Timers/src/Timers.o
+ .debug_line    0x0000143e       0x83 Service/SwDelay/src/SwDelay.o
 
 .debug_frame    0x00000000      0x6a4
  *(.debug_frame)
@@ -1079,15 +1079,15 @@ END GROUP
  .debug_str     0x00000d7c       0x39 Service/SwDelay/src/SwDelay.o
                                 0x197 (size before relaxing)
 
-.debug_loc      0x00000000     0x1ac8
+.debug_loc      0x00000000     0x1abb
  *(.debug_loc)
- .debug_loc     0x00000000       0x36 App/CarControl/src/CarControl.o
- .debug_loc     0x00000036      0x229 ECUAL/Dc_Motor/src/DC_Motor.o
- .debug_loc     0x0000025f      0x178 ECUAL/Sw_ICU/src/Sw_ICU.o
- .debug_loc     0x000003d7       0x47 ECUAL/Ultrasonic/src/Ultrasonic.o
- .debug_loc     0x0000041e      0xd1c MCAL/Gpio/src/Gpio.o
- .debug_loc     0x0000113a      0x95a MCAL/Timers/src/Timers.o
- .debug_loc     0x00001a94       0x34 Service/SwDelay/src/SwDelay.o
+ .debug_loc     0x00000000       0x29 App/CarControl/src/CarControl.o
+ .debug_loc     0x00000029      0x229 ECUAL/Dc_Motor/src/DC_Motor.o
+ .debug_loc     0x00000252      0x178 ECUAL/Sw_ICU/src/Sw_ICU.o
+ .debug_loc     0x000003ca       0x47 ECUAL/Ultrasonic/src/Ultrasonic.o
+ .debug_loc     0x00000411      0xd1c MCAL/Gpio/src/Gpio.o
+ .debug_loc     0x0000112d      0x95a MCAL/Timers/src/Timers.o
+ .debug_loc     0x00001a87       0x34 Service/SwDelay/src/SwDelay.o
 
 .debug_macinfo
  *(.debug_macinfo)

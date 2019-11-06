@@ -5,12 +5,16 @@
  *  Author: Ammar Shahin
  */ 
 
+/************************************************************************/
+/*				              Files Includes                           */
+/************************************************************************/
 #include "Typedefs.h"
 #include "Led_Cfg.h"
 #include "Led.h"
 #include "Gpio.h"
 
 /*===========================Led Control Functions===============================*/
+
 /**
  * Description: Initializing Function to the Led
  * @param led_Num the number of the Led [LED0,LED1,LED2,LED3]

@@ -1,6 +1,6 @@
 /*
  * Typedefs.h
- *
+ * Description : This file is used to define all the standard types and the used types used in the project   
  * Created: 10/21/2019 3:33:11 PM
  *  Author: Ammar Shahin
  */ 
@@ -64,12 +64,8 @@ typedef enum{
 /************************************************************************/
 /*               Defines for the State of the Function                  */
 /************************************************************************/
-
 #define  NOT_OK 0
 #define  OK		1
-
-
 #define NO_CHANGE -1
-
 
 #endif /* Typedefs_H_ */

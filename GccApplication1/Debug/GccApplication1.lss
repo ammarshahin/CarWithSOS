@@ -19,15 +19,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   7 .debug_abbrev 00000d18  00000000  00000000  00003312  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   000014bf  00000000  00000000  0000402a  2**0
+  8 .debug_line   000014c1  00000000  00000000  0000402a  2**0
                   CONTENTS, READONLY, DEBUGGING
   9 .debug_frame  000006a4  00000000  00000000  000054ec  2**2
                   CONTENTS, READONLY, DEBUGGING
  10 .debug_str    00000db5  00000000  00000000  00005b90  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00001ac8  00000000  00000000  00006945  2**0
+ 11 .debug_loc    00001abb  00000000  00000000  00006945  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000240  00000000  00000000  0000840d  2**0
+ 12 .debug_ranges 00000240  00000000  00000000  00008400  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -104,9 +104,9 @@ Disassembly of section .text:
   9e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 000000a2 <Car_Init>:
-#include <SwDelay.h>
-
-
+ * Description: This function is to initialize the car 
+ *  it Don't take any thing and returns nothing
+ */
 void Car_Init(void)
 {
 	UltraSonic_Init();
@@ -126,16 +126,17 @@ void Car_Init(void)
   be:	08 95       	ret
 
 000000c0 <Car_Action>:
-}
-
-
-void Car_Action(void){
-	uint8 distance = 200;
-	Ultrasonic_Trigger();
+ * Description: This function is to Implement the car logic 
+ *  it Don't take any thing and returns nothing
+ */
+void Car_Action(void)
+{
+	Ultrasonic_Trigger();	
   c0:	0e 94 ee 01 	call	0x3dc	; 0x3dc <Ultrasonic_Trigger>
-	distance = Ultrasonic_CalculateDistance();
+	uint8 distance = Ultrasonic_CalculateDistance();
   c4:	0e 94 ff 01 	call	0x3fe	; 0x3fe <Ultrasonic_CalculateDistance>
-	if(distance > 60)
+	
+	if(distance > 60) /* No obstacle Go Forward */
   c8:	6d 33       	cpi	r22, 0x3D	; 61
   ca:	30 f0       	brcs	.+12     	; 0xd8 <Car_Action+0x18>
 	{
@@ -146,7 +147,7 @@ void Car_Action(void){
   d2:	0e 94 ed 00 	call	0x1da	; 0x1da <DC_Motor_Set_Speed>
   d6:	08 95       	ret
 	}
-	else if ( (distance < 60) && (distance > 30) )
+	else if ( (distance < 60) && (distance > 30) )  /* Obstacle on the near range */
   d8:	81 ee       	ldi	r24, 0xE1	; 225
   da:	86 0f       	add	r24, r22
   dc:	8d 31       	cpi	r24, 0x1D	; 29
@@ -165,7 +166,7 @@ void Car_Action(void){
   f2:	0e 94 89 03 	call	0x712	; 0x712 <SwDelay_ms>
   f6:	08 95       	ret
 	}
-	else if(distance < 30)
+	else if(distance < 30)  /* Obstacle is very near go back till an enough range to rotate */
   f8:	6e 31       	cpi	r22, 0x1E	; 30
   fa:	58 f4       	brcc	.+22     	; 0x112 <Car_Action+0x52>
 	{
@@ -183,8 +184,8 @@ void Car_Action(void){
  112:	08 95       	ret
 
 00000114 <Move_Forward>:
-#include "DC_Motor.h"
-#include "DC_Motor_cfg.h"
+ *  it take nothing and returns nothing
+ */
 
 void Move_Forward(void)
 {
@@ -199,7 +200,9 @@ void Move_Forward(void)
  124:	08 95       	ret
 
 00000126 <Move_Backward>:
-}
+ * Description: This function is to make car move Backward
+ *  it take nothing and returns nothing
+ */
 void Move_Backward(void)
 {
 	DC_Motor_Set_Direction(DC_MOTOR_CHANNEL_0, DC_MOTOR_BACK);
@@ -213,8 +216,9 @@ void Move_Backward(void)
  136:	08 95       	ret
 
 00000138 <Move_RotateRight>:
-}
-
+ * Description: This function is to make car Rotate Right
+ *  it take nothing and returns nothing
+ */
 void Move_RotateRight(void)
 {
 	DC_Motor_Set_Direction(DC_MOTOR_CHANNEL_0, DC_MOTOR_BACK);
@@ -361,10 +365,10 @@ void Move_RotateRight(void)
  25e:	08 95       	ret
 
 00000260 <DC_Motor_Start>:
-	}		
-}
-
-
+ * Description : This function is used to Start the motor Channel.
+ * @pram  Channel : Set the Channel of the motor.
+ * Return : the function Returns Nothing.
+ */
 void DC_Motor_Start(uint8 Channel)
 {
  260:	cf 93       	push	r28
@@ -654,15 +658,17 @@ uint32 Ultrasonic_CalculateDistance(void)
  45a:	08 95       	ret
 
 0000045c <main>:
-
-#include "CarControl.h"
-
+/*                        Functions Definitions                         */
+/************************************************************************/
 int main(void)
 {
+	/* Initializing the car */
 	Car_Init();
  45c:	0e 94 51 00 	call	0xa2	; 0xa2 <Car_Init>
+	
     while (1) 
     {
+	/* Applying the Car moving logic */
 		Car_Action();
  460:	0e 94 60 00 	call	0xc0	; 0xc0 <Car_Action>
  464:	fd cf       	rjmp	.-6      	; 0x460 <main+0x4>
@@ -1115,7 +1121,7 @@ void SwDelay_ms(uint32 NoOfMilleSeconds)
  712:	9b 01       	movw	r18, r22
  714:	ac 01       	movw	r20, r24
 	sint32 counter;
-	counter = NoOfMilleSeconds * (F_CPU / 1000);
+	counter = NoOfMilleSeconds * (F_CPU / FROM_MELLI_SECONDS_TO_SECONDS);
  716:	a0 e8       	ldi	r26, 0x80	; 128
  718:	be e3       	ldi	r27, 0x3E	; 62
  71a:	0e 94 79 05 	call	0xaf2	; 0xaf2 <__muluhisi3>
@@ -1135,7 +1141,7 @@ void SwDelay_ms(uint32 NoOfMilleSeconds)
 void SwDelay_ms(uint32 NoOfMilleSeconds)
 {
 	sint32 counter;
-	counter = NoOfMilleSeconds * (F_CPU / 1000);
+	counter = NoOfMilleSeconds * (F_CPU / FROM_MELLI_SECONDS_TO_SECONDS);
 	while(counter > 0)
  730:	16 16       	cp	r1, r22
  732:	17 06       	cpc	r1, r23
