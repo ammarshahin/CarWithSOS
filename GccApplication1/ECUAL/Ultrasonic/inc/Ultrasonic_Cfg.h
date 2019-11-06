@@ -8,6 +8,10 @@
 #ifndef ULTRASONIC_CFG_H_
 #define ULTRASONIC_CFG_H_
 
+
+/************************************************************************/
+/*				     Defines For the Configuration                      */
+/************************************************************************/
 #define ULTRASONIC_TRIGGER_PORT        MYPORTA
 #define ULTRASONIC_TRIGGER_PIN         BIT7
 #define ULTRASONIC_ECHO_PORT		   MYPORTD

@@ -743,9 +743,9 @@ END GROUP
  .text.__vector_5
                 0x000003a0       0x22 ECUAL/Sw_ICU/src/Sw_ICU.o
                 0x000003a0                __vector_5
- .text.UltraSonic_Init
+ .text.Ultrasonic_Init
                 0x000003c2       0x1a ECUAL/Ultrasonic/src/Ultrasonic.o
-                0x000003c2                UltraSonic_Init
+                0x000003c2                Ultrasonic_Init
  .text.Ultrasonic_Trigger
                 0x000003dc       0x22 ECUAL/Ultrasonic/src/Ultrasonic.o
                 0x000003dc                Ultrasonic_Trigger
@@ -887,7 +887,8 @@ END GROUP
                 0x00800060        0x8 ECUAL/Sw_ICU/src/Sw_ICU.o
  .bss.numOfOverflows
                 0x00800068        0x1 ECUAL/Sw_ICU/src/Sw_ICU.o
- .bss.flag      0x00800069        0x1 ECUAL/Sw_ICU/src/Sw_ICU.o
+ .bss.Falling_Risin_Flag
+                0x00800069        0x1 ECUAL/Sw_ICU/src/Sw_ICU.o
  .bss.prescaller2
                 0x0080006a        0x1 MCAL/Timers/src/Timers.o
                 0x0080006a                prescaller2
@@ -1032,18 +1033,18 @@ END GROUP
  .debug_abbrev  0x00000a9e      0x20b MCAL/Timers/src/Timers.o
  .debug_abbrev  0x00000ca9       0x6f Service/SwDelay/src/SwDelay.o
 
-.debug_line     0x00000000     0x14c1
+.debug_line     0x00000000     0x14c2
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x115 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_line    0x00000115      0x183 App/CarControl/src/CarControl.o
  .debug_line    0x00000298       0xf5 App/CarDirection/src/CarDirection.o
  .debug_line    0x0000038d      0x1e4 ECUAL/Dc_Motor/src/DC_Motor.o
- .debug_line    0x00000571      0x168 ECUAL/Sw_ICU/src/Sw_ICU.o
- .debug_line    0x000006d9      0x124 ECUAL/Ultrasonic/src/Ultrasonic.o
- .debug_line    0x000007fd       0x6f main.o
- .debug_line    0x0000086c      0x5bc MCAL/Gpio/src/Gpio.o
- .debug_line    0x00000e28      0x616 MCAL/Timers/src/Timers.o
- .debug_line    0x0000143e       0x83 Service/SwDelay/src/SwDelay.o
+ .debug_line    0x00000571      0x169 ECUAL/Sw_ICU/src/Sw_ICU.o
+ .debug_line    0x000006da      0x124 ECUAL/Ultrasonic/src/Ultrasonic.o
+ .debug_line    0x000007fe       0x6f main.o
+ .debug_line    0x0000086d      0x5bc MCAL/Gpio/src/Gpio.o
+ .debug_line    0x00000e29      0x616 MCAL/Timers/src/Timers.o
+ .debug_line    0x0000143f       0x83 Service/SwDelay/src/SwDelay.o
 
 .debug_frame    0x00000000      0x6a4
  *(.debug_frame)
@@ -1057,7 +1058,7 @@ END GROUP
  .debug_frame   0x00000390      0x2f0 MCAL/Timers/src/Timers.o
  .debug_frame   0x00000680       0x24 Service/SwDelay/src/SwDelay.o
 
-.debug_str      0x00000000      0xdb5
+.debug_str      0x00000000      0xdc3
  *(.debug_str)
  .debug_str     0x00000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_str     0x00000196      0x1fd App/CarControl/src/CarControl.o
@@ -1066,17 +1067,17 @@ END GROUP
                                 0x1d1 (size before relaxing)
  .debug_str     0x000003ef      0x300 ECUAL/Dc_Motor/src/DC_Motor.o
                                 0x4af (size before relaxing)
- .debug_str     0x000006ef      0x1f6 ECUAL/Sw_ICU/src/Sw_ICU.o
-                                0x340 (size before relaxing)
- .debug_str     0x000008e5       0x38 ECUAL/Ultrasonic/src/Ultrasonic.o
+ .debug_str     0x000006ef      0x204 ECUAL/Sw_ICU/src/Sw_ICU.o
+                                0x34e (size before relaxing)
+ .debug_str     0x000008f3       0x38 ECUAL/Ultrasonic/src/Ultrasonic.o
                                 0x253 (size before relaxing)
- .debug_str     0x0000091d       0x11 main.o
+ .debug_str     0x0000092b       0x11 main.o
                                 0x102 (size before relaxing)
- .debug_str     0x0000092e      0x147 MCAL/Gpio/src/Gpio.o
+ .debug_str     0x0000093c      0x147 MCAL/Gpio/src/Gpio.o
                                 0x2cf (size before relaxing)
- .debug_str     0x00000a75      0x307 MCAL/Timers/src/Timers.o
+ .debug_str     0x00000a83      0x307 MCAL/Timers/src/Timers.o
                                 0x89b (size before relaxing)
- .debug_str     0x00000d7c       0x39 Service/SwDelay/src/SwDelay.o
+ .debug_str     0x00000d8a       0x39 Service/SwDelay/src/SwDelay.o
                                 0x197 (size before relaxing)
 
 .debug_loc      0x00000000     0x1abb

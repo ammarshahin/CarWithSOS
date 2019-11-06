@@ -27,7 +27,7 @@
  */
 void Car_Init(void)
 {
-	UltraSonic_Init();
+	Ultrasonic_Init();
 	DC_Motor_Init(DC_MOTOR_CHANNEL_0);
 	DC_Motor_Init(DC_MOTOR_CHANNEL_1);
 	DC_Motor_Start(DC_MOTOR_CHANNEL_0);
