@@ -26,6 +26,5 @@ void PWM_Init( uint8 ch_no);
  * @param dutyCycle the duty cycle of the PWM in percentage
  * @param freq the frequency of the PWM in Hz
  */
-void PWM_PhaseCorrect( uint8 dutycycle , uint16 freq);
-
+void PWM_PhaseCorrect( uint8 dutycycle);
 #endif /* PWM_H_ */

@@ -1,7 +1,7 @@
 /*
  * Timers_PCFG.c
  * Description : This File is used to control the Timer Peripherals in the MCAL layer
- * Created: 10/22/2019 2:04:16 PM
+ * Created: NUMBER_TEN/22/2019 2:04:16 PM
  *  Author: Ammar Shahin
  */ 
 #ifndef  _Timers_LCFG_H
@@ -32,7 +32,7 @@
 typedef struct Timers_CFG_S{
 	uint8  ch_no;
 	uint8  Timers_Mode;
-	uint16 Timers_count;
+	uint32 Timers_count;
 	uint8  Timers_Interrupt;
 	uint32 CPU_CLK;
 }Timers_CFG_S;

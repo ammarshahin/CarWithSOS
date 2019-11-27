@@ -48,8 +48,11 @@
 #define SECONDS_TO_NANOSECONSD_FACTOR  1000000000
 #define SECONDS_TO_MICROSECONSD_FACTOR 1000000
 #define SECONDS_TO_MILLISECONSD_FACTOR 1000
+#define MILLISECONSD_TO_MICROSECONSD_FACTOR 1000
 #define DUTY_CYCLE_PERCENTAGE_FACTOR   100
 
+
+#define SECONDS_TO_SETCOUNTER 1000000
 
 #define TIFR_TOV0_FLAG_MASK 0x01
 #define TIFR_TOV1_FLAG_MASK 0x04
@@ -72,9 +75,9 @@
 /* for timer 0 */
 typedef enum {
 	T0_NORMAL_MODE=0x00,
-	T0_PWM_MODE=0x40,
-	T0_COMP_MODE=0x08,
-	T0_FastPWM_MODE=0x48
+	T0_PWM_MODE=0x60,
+	T0_COMP_MODE=0x40,
+	T0_FastPWM_MODE=0x48,
 }T0_MODE;
 
 typedef enum {
@@ -111,7 +114,7 @@ typedef enum {
 	T1_FastPWM8Bit_MODE=0x09					,
 	T1_FastPWM9Bit_MODE=0x0A					,
 	T1_FastPWM10Bit_MODE=0x0B					,
-	T1_PWM_PhaseAndFreqCorrect_ICR1_MODE=0x10   ,
+	T1_PWM_PhaseAndFreqCorrect_ICR1_MODE=0x10  ,
 	T1_PWM_PhaseCorrect_ICR1_MODE=0x12          ,
 	T1_PWM_PhaseCorrect_OCR1A_MODE=0x13         ,
 	T1_COMPA_ICR1_MODE=0x18                     ,
@@ -154,7 +157,7 @@ typedef enum {
 /* for timer 2 */
 typedef enum {
 	T2_NORMAL_MODE=0x00,
-	T2_PWM_MODE=0x40,
+	T2_PWM_MODE=0x60,
 	T2_COMP_MODE=0x08,
 	T2_FastPWM_MODE=0x48
 }T2_MODE;
@@ -197,7 +200,8 @@ extern volatile uint16 Gv_PrescallerTimer2_AbsoluteValue;
 extern volatile uint8 Gv_PrescallerTimer0_Mask;
 extern volatile uint8 Gv_PrescallerTimer1_Mask;
 extern volatile uint8 Gv_PrescallerTimer2_Mask;
-
+extern volatile uint8 Timer_gEnumBcm_Tx_Flag;
+extern volatile uint8 Time_Init;
 /************************************************************************/
 /*                   Timers' Functions' prototypes                      */
 /************************************************************************/
@@ -219,7 +223,7 @@ uint8 Timers_Init(Timers_CFG_S* cfg_s);
  * @param count the no to wait for 
  * @return the Status of the initialization [OK Or NOT_OK]
  */
-uint8 Timers_SetCounter(uint8 ch_no,uint16 count);
+uint8 Timers_SetCounter(uint8 ch_no,uint32 count);
 
 /**
  * Function : Timers_Start
@@ -438,5 +442,11 @@ void Timers_timer2_Delay_ns(uint32 delay);
  */
 void Timers_timer2_SwPWM(uint8 dutyCycle,uint64 freq);
 
+/**
+ * Function : Timers_SetCallBack
+ * Description: This function is used to set the Call Back Function in the Timer
+ * @return void
+ */
+void Timers_SetCallBack(v_PtrFunc_v_type FuncName);
 
 #endif /* TIMERS_H_ */

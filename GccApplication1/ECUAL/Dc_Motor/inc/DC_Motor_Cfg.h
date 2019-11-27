@@ -11,11 +11,11 @@
 /************************************************************************/
 /*				          Data Types and Defines                        */
 /************************************************************************/
-#define DC_MOTOR_CHANNEL_0_PORT						MYPORTA
+#define DC_MOTOR_CHANNEL_0_PORT						MYPORTC
 #define DC_MOTOR_CHANNEL_0_PIN_1					BIT0
 #define DC_MOTOR_CHANNEL_0_PIN_2					BIT2
 
-#define DC_MOTOR_CHANNEL_1_PORT						MYPORTA
+#define DC_MOTOR_CHANNEL_1_PORT						MYPORTC
 #define DC_MOTOR_CHANNEL_1_PIN_1					BIT1
 #define DC_MOTOR_CHANNEL_1_PIN_2					BIT3
 

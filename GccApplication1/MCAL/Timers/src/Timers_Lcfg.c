@@ -1,7 +1,7 @@
 /*
  * Timers_PCFG.c
  * Description : This File is used to control the Timer Peripherals in the MCAL layer
- * Created: 10/22/2019 2:04:16 PM
+ * Created: NUMBER_TEN/22/2019 2:04:16 PM
  *  Author: Ammar Shahin
  */ 
 
@@ -12,7 +12,7 @@
 #include "Timers.h"
 #include "MCU_Frequency.h"
 
-#define Counter_Default 20000
+#define Counter_Default 1000000
 
 
 /************************************************************************/
@@ -22,18 +22,18 @@
 /* timer 0 structure */
 Timers_CFG_S timer0_cfg_s = {
     TIMER0,
-    Timers_MODE,
+    T0_NORMAL_MODE,
     Counter_Default,
-    INTERRUPT,
+    T0_INTERRUPT_NORMAL,
     F_CPU,
 };
 
 /* timer 1 structure */
 Timers_CFG_S timer1_cfg_s = {
 	TIMER1,
-	T1_PWM_PhaseCorrect_ICR1_MODE,
+	T1_NORMAL_MODE,
 	Counter_Default,
-	POLLING,
+	INTERRUPT,
 	F_CPU,
 };
 
@@ -41,8 +41,8 @@ Timers_CFG_S timer1_cfg_s = {
 /* timer 2 structure */
 Timers_CFG_S timer2_cfg_s = {
 	TIMER2,
-	Timers_MODE,
+	T2_PWM_MODE,
 	Counter_Default,
-	INTERRUPT,
+	POLLING,
 	F_CPU,
 }; 

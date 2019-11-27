@@ -9,7 +9,8 @@
 #include "Ultrasonic_Cfg.h"
 #include "Ultrasonic.h"
 #include "SwDelay.h"
-
+#include "LCD.h"
+#include "stdlib.h"
 /************************************************************************/
 /*				        Defines and Data Types                          */
 /************************************************************************/
@@ -43,7 +44,7 @@ void Ultrasonic_Init(void)
 void Ultrasonic_Trigger(void)
 {
 	Gpio_PinWrite(ULTRASONIC_TRIGGER_PORT,ULTRASONIC_TRIGGER_PIN,HIGH);
-	SwDelay_us(10);
+	SwDelay_us(20);
 	Gpio_PinWrite(ULTRASONIC_TRIGGER_PORT,ULTRASONIC_TRIGGER_PIN,LOW);
 }
 
@@ -61,4 +62,20 @@ uint32 Ultrasonic_CalculateDistance(void)
 	SwICU_Read(&raising_time_ns);
 	theDistance = ( ( raising_time_ns / NANOSECONDS_FACTOR ) * SOUNDSPEED_FACTOR );
 	return theDistance;	
+}
+
+/**
+ * Function : Ultrasonic_Display
+ * Description : This function is used to Display the Distance of the Measurement on LCD
+ * Return void
+ */
+void Ultrasonic_Display(void)
+{
+	uint16 distance;
+	char Buffer[10];
+	Ultrasonic_Trigger();
+	distance = Ultrasonic_CalculateDistance();
+	itoa(distance,Buffer,10);
+	LCD_Clear();
+	LCD_DisplayString(Buffer);
 }

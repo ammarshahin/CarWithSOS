@@ -12,8 +12,8 @@
 /************************************************************************/
 /*				     Defines For the Configuration                      */
 /************************************************************************/
-#define ULTRASONIC_TRIGGER_PORT        MYPORTA
-#define ULTRASONIC_TRIGGER_PIN         BIT7
+#define ULTRASONIC_TRIGGER_PORT        MYPORTB
+#define ULTRASONIC_TRIGGER_PIN         BIT0
 #define ULTRASONIC_ECHO_PORT		   MYPORTD
 #define ULTRASONIC_ECHO_PIN            BIT2
 

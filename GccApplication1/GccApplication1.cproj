@@ -160,9 +160,16 @@
       <Value>../MCAL/Timers/src</Value>
       <Value>../MCAL/PWM/inc</Value>
       <Value>../MCAL/PWM/src</Value>
+      <Value>../ECUAL/LCD/inc</Value>
+      <Value>../ECUAL/LCD/src</Value>
+      <Value>../ECUAL/PB/inc</Value>
+      <Value>../ECUAL/PB/src</Value>
+      <Value>../Firmware/SOS/inc</Value>
+      <Value>../Firmware/SOS/src</Value>
+      <Value>../App/testApp/inc</Value>
+      <Value>../App/testApp/src</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
-  <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
   <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
   <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
   <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
@@ -199,6 +206,12 @@
     <Compile Include="App\CarDirection\src\CarDirection.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="App\testApp\inc\App.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="App\testApp\src\main.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Command\inc\BitMasking_Macros.h">
       <SubType>compile</SubType>
     </Compile>
@@ -214,6 +227,15 @@
     <Compile Include="ECUAL\Dc_Motor\src\DC_Motor.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="ECUAL\LCD\inc\LCD.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\LCD\inc\LCD_cfg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\LCD\src\LCD.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="ECUAL\Led\inc\Led.h">
       <SubType>compile</SubType>
     </Compile>
@@ -221,6 +243,15 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="ECUAL\Led\src\Led.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\PB\inc\pushButton.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\PB\inc\pushButtonConfig.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\PB\src\pushButton.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="ECUAL\Sw_ICU\inc\Sw_ICU.h">
@@ -238,7 +269,13 @@
     <Compile Include="ECUAL\Ultrasonic\src\Ultrasonic.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="main.c">
+    <Compile Include="Firmware\SOS\inc\SOS.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Firmware\SOS\inc\SOS_Cfg.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Firmware\SOS\src\SOS.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\Gpio\inc\Gpio.h">
@@ -265,13 +302,13 @@
     <Compile Include="MCAL\Timers\inc\Timers.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\Timers\inc\Timers_Lcfg.c">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="MCAL\Timers\inc\Timers_Lcfg.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\Timers\src\Timers.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\Timers\src\Timers_Lcfg.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Service\SwDelay\inc\SwDelay.h">
@@ -288,6 +325,9 @@
     <Folder Include="App\CarDirection" />
     <Folder Include="App\CarDirection\inc\" />
     <Folder Include="App\CarDirection\src\" />
+    <Folder Include="App\testApp" />
+    <Folder Include="App\testApp\inc" />
+    <Folder Include="App\testApp\src" />
     <Folder Include="Command" />
     <Folder Include="App" />
     <Folder Include="Command\inc" />
@@ -295,15 +335,24 @@
     <Folder Include="ECUAL\Dc_Motor" />
     <Folder Include="ECUAL\Dc_Motor\inc" />
     <Folder Include="ECUAL\Dc_Motor\src" />
+    <Folder Include="ECUAL\LCD\inc\" />
+    <Folder Include="ECUAL\LCD\src\" />
     <Folder Include="ECUAL\Led" />
     <Folder Include="ECUAL\Led\inc\" />
     <Folder Include="ECUAL\Led\src\" />
+    <Folder Include="ECUAL\LCD" />
+    <Folder Include="ECUAL\PB" />
+    <Folder Include="ECUAL\PB\inc\" />
+    <Folder Include="ECUAL\PB\src\" />
     <Folder Include="ECUAL\Ultrasonic" />
     <Folder Include="ECUAL\Sw_ICU" />
     <Folder Include="ECUAL\Sw_ICU\inc" />
     <Folder Include="ECUAL\Sw_ICU\src" />
     <Folder Include="ECUAL\Ultrasonic\inc" />
     <Folder Include="ECUAL\Ultrasonic\src" />
+    <Folder Include="Firmware\SOS" />
+    <Folder Include="Firmware\SOS\inc" />
+    <Folder Include="Firmware\SOS\src" />
     <Folder Include="MCAL" />
     <Folder Include="MCAL\Gpio" />
     <Folder Include="MCAL\Gpio\inc" />
@@ -320,6 +369,7 @@
     <Folder Include="MCAL\Timers" />
     <Folder Include="MCAL\Timers\inc\" />
     <Folder Include="MCAL\Timers\src\" />
+    <Folder Include="Firmware" />
     <Folder Include="Service" />
     <Folder Include="Service\SwDelay" />
     <Folder Include="Service\SwDelay\inc" />

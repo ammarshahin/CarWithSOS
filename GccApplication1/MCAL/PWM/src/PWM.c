@@ -9,6 +9,7 @@
 /*                            Files Includes                            */
 /************************************************************************/
 #include "MCU_Frequency.h"
+#include "Gpio.h" 
 #include "Typedefs.h"
 #include "Timers.h"
 
@@ -23,6 +24,7 @@
  */
 
 void PWM_Init( uint8 ch_no){
+	Gpio_PinDirection(MYPORTD,BIT7,SET_OUT);
 	switch(ch_no)
 	{
 		case TIMER0:
@@ -33,8 +35,10 @@ void PWM_Init( uint8 ch_no){
 		break;
 		case TIMER2:
 		Timers_Init(&timer2_cfg_s);
+		Gpio_PinDirection(MYPORTD,BIT7,SET_OUT);
 		break;
 	}
+	Timers_Start(ch_no);
 }
 
 /**
@@ -44,13 +48,11 @@ void PWM_Init( uint8 ch_no){
  * @param freq the frequency of the PWM in Hz
  */
 
-void PWM_PhaseCorrect( uint8 dutycycle , uint16 freq){
-	uint16 TOP_Value;
-	uint16 Compare_Value;
-	TOP_Value = F_CPU / ( 2 * freq * Gv_PrescallerTimer1_AbsoluteValue);
-	Compare_Value = (TOP_Value*dutycycle)/DUTY_CYCLE_PERCENTAGE_FACTOR;
-	ICR1L  = (uint8)(TOP_Value);
-	ICR1H  = (uint8)(TOP_Value>>8);
-	OCR1AL = (uint8)(Compare_Value);
-	OCR1AH = (uint8)(Compare_Value>>8);
+void PWM_PhaseCorrect( uint8 dutycycle)
+{
+	uint8 TOP_Value;
+	uint8 Compare_Value;
+	TOP_Value = F_CPU / ( 2 * 10000 * Gv_PrescallerTimer2_AbsoluteValue);
+	Compare_Value = (TOP_Value*dutycycle) / DUTY_CYCLE_PERCENTAGE_FACTOR;
+	OCR2 = 200;//(uint8)(Compare_Value);
 }

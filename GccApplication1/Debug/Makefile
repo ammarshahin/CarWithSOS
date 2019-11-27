@@ -39,6 +39,9 @@ SUBDIRS :=  \
 ../App/CarDirection \
 ../App/CarDirection/inc/ \
 ../App/CarDirection/src/ \
+../App/testApp \
+../App/testApp/inc \
+../App/testApp/src \
 ../Command \
 ../App \
 ../Command/inc \
@@ -46,15 +49,24 @@ SUBDIRS :=  \
 ../ECUAL/Dc_Motor \
 ../ECUAL/Dc_Motor/inc \
 ../ECUAL/Dc_Motor/src \
+../ECUAL/LCD/inc/ \
+../ECUAL/LCD/src/ \
 ../ECUAL/Led \
 ../ECUAL/Led/inc/ \
 ../ECUAL/Led/src/ \
+../ECUAL/LCD \
+../ECUAL/PB \
+../ECUAL/PB/inc/ \
+../ECUAL/PB/src/ \
 ../ECUAL/Ultrasonic \
 ../ECUAL/Sw_ICU \
 ../ECUAL/Sw_ICU/inc \
 ../ECUAL/Sw_ICU/src \
 ../ECUAL/Ultrasonic/inc \
 ../ECUAL/Ultrasonic/src \
+../Firmware/SOS \
+../Firmware/SOS/inc \
+../Firmware/SOS/src \
 ../MCAL \
 ../MCAL/Gpio \
 ../MCAL/Gpio/inc \
@@ -71,6 +83,7 @@ SUBDIRS :=  \
 ../MCAL/Timers \
 ../MCAL/Timers/inc/ \
 ../MCAL/Timers/src/ \
+../Firmware \
 ../Service \
 ../Service/SwDelay \
 ../Service/SwDelay/inc \
@@ -81,16 +94,19 @@ SUBDIRS :=  \
 C_SRCS +=  \
 ../App/CarControl/src/CarControl.c \
 ../App/CarDirection/src/CarDirection.c \
+../App/testApp/src/main.c \
 ../ECUAL/Dc_Motor/src/DC_Motor.c \
+../ECUAL/LCD/src/LCD.c \
 ../ECUAL/Led/src/Led.c \
+../ECUAL/PB/src/pushButton.c \
 ../ECUAL/Sw_ICU/src/Sw_ICU.c \
 ../ECUAL/Ultrasonic/src/Ultrasonic.c \
-../main.c \
+../Firmware/SOS/src/SOS.c \
 ../MCAL/Gpio/src/Gpio.c \
 ../MCAL/Interrupts/src/Interrupts.c \
 ../MCAL/PWM/src/PWM.c \
-../MCAL/Timers/inc/Timers_Lcfg.c \
 ../MCAL/Timers/src/Timers.c \
+../MCAL/Timers/src/Timers_Lcfg.c \
 ../Service/SwDelay/src/SwDelay.c
 
 
@@ -103,61 +119,73 @@ ASM_SRCS +=
 OBJS +=  \
 App/CarControl/src/CarControl.o \
 App/CarDirection/src/CarDirection.o \
+App/testApp/src/main.o \
 ECUAL/Dc_Motor/src/DC_Motor.o \
+ECUAL/LCD/src/LCD.o \
 ECUAL/Led/src/Led.o \
+ECUAL/PB/src/pushButton.o \
 ECUAL/Sw_ICU/src/Sw_ICU.o \
 ECUAL/Ultrasonic/src/Ultrasonic.o \
-main.o \
+Firmware/SOS/src/SOS.o \
 MCAL/Gpio/src/Gpio.o \
 MCAL/Interrupts/src/Interrupts.o \
 MCAL/PWM/src/PWM.o \
-MCAL/Timers/inc/Timers_Lcfg.o \
 MCAL/Timers/src/Timers.o \
+MCAL/Timers/src/Timers_Lcfg.o \
 Service/SwDelay/src/SwDelay.o
 
 OBJS_AS_ARGS +=  \
 App/CarControl/src/CarControl.o \
 App/CarDirection/src/CarDirection.o \
+App/testApp/src/main.o \
 ECUAL/Dc_Motor/src/DC_Motor.o \
+ECUAL/LCD/src/LCD.o \
 ECUAL/Led/src/Led.o \
+ECUAL/PB/src/pushButton.o \
 ECUAL/Sw_ICU/src/Sw_ICU.o \
 ECUAL/Ultrasonic/src/Ultrasonic.o \
-main.o \
+Firmware/SOS/src/SOS.o \
 MCAL/Gpio/src/Gpio.o \
 MCAL/Interrupts/src/Interrupts.o \
 MCAL/PWM/src/PWM.o \
-MCAL/Timers/inc/Timers_Lcfg.o \
 MCAL/Timers/src/Timers.o \
+MCAL/Timers/src/Timers_Lcfg.o \
 Service/SwDelay/src/SwDelay.o
 
 C_DEPS +=  \
 App/CarControl/src/CarControl.d \
 App/CarDirection/src/CarDirection.d \
+App/testApp/src/main.d \
 ECUAL/Dc_Motor/src/DC_Motor.d \
+ECUAL/LCD/src/LCD.d \
 ECUAL/Led/src/Led.d \
+ECUAL/PB/src/pushButton.d \
 ECUAL/Sw_ICU/src/Sw_ICU.d \
 ECUAL/Ultrasonic/src/Ultrasonic.d \
-main.d \
+Firmware/SOS/src/SOS.d \
 MCAL/Gpio/src/Gpio.d \
 MCAL/Interrupts/src/Interrupts.d \
 MCAL/PWM/src/PWM.d \
-MCAL/Timers/inc/Timers_Lcfg.d \
 MCAL/Timers/src/Timers.d \
+MCAL/Timers/src/Timers_Lcfg.d \
 Service/SwDelay/src/SwDelay.d
 
 C_DEPS_AS_ARGS +=  \
 App/CarControl/src/CarControl.d \
 App/CarDirection/src/CarDirection.d \
+App/testApp/src/main.d \
 ECUAL/Dc_Motor/src/DC_Motor.d \
+ECUAL/LCD/src/LCD.d \
 ECUAL/Led/src/Led.d \
+ECUAL/PB/src/pushButton.d \
 ECUAL/Sw_ICU/src/Sw_ICU.d \
 ECUAL/Ultrasonic/src/Ultrasonic.d \
-main.d \
+Firmware/SOS/src/SOS.d \
 MCAL/Gpio/src/Gpio.d \
 MCAL/Interrupts/src/Interrupts.d \
 MCAL/PWM/src/PWM.d \
-MCAL/Timers/inc/Timers_Lcfg.d \
 MCAL/Timers/src/Timers.d \
+MCAL/Timers/src/Timers_Lcfg.d \
 Service/SwDelay/src/SwDelay.d
 
 OUTPUT_FILE_PATH +=GccApplication1.elf
@@ -177,91 +205,112 @@ LINKER_SCRIPT_DEP+=
 App/CarControl/src/CarControl.o: ../App/CarControl/src/CarControl.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src" -I"../ECUAL/LCD/inc" -I"../ECUAL/LCD/src" -I"../ECUAL/PB/inc" -I"../ECUAL/PB/src" -I"../Firmware/SOS/inc" -I"../Firmware/SOS/src" -I"../App/testApp/inc" -I"../App/testApp/src"  -O0 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 App/CarDirection/src/CarDirection.o: ../App/CarDirection/src/CarDirection.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src" -I"../ECUAL/LCD/inc" -I"../ECUAL/LCD/src" -I"../ECUAL/PB/inc" -I"../ECUAL/PB/src" -I"../Firmware/SOS/inc" -I"../Firmware/SOS/src" -I"../App/testApp/inc" -I"../App/testApp/src"  -O0 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+App/testApp/src/main.o: ../App/testApp/src/main.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src" -I"../ECUAL/LCD/inc" -I"../ECUAL/LCD/src" -I"../ECUAL/PB/inc" -I"../ECUAL/PB/src" -I"../Firmware/SOS/inc" -I"../Firmware/SOS/src" -I"../App/testApp/inc" -I"../App/testApp/src"  -O0 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 ECUAL/Dc_Motor/src/DC_Motor.o: ../ECUAL/Dc_Motor/src/DC_Motor.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src" -I"../ECUAL/LCD/inc" -I"../ECUAL/LCD/src" -I"../ECUAL/PB/inc" -I"../ECUAL/PB/src" -I"../Firmware/SOS/inc" -I"../Firmware/SOS/src" -I"../App/testApp/inc" -I"../App/testApp/src"  -O0 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+ECUAL/LCD/src/LCD.o: ../ECUAL/LCD/src/LCD.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src" -I"../ECUAL/LCD/inc" -I"../ECUAL/LCD/src" -I"../ECUAL/PB/inc" -I"../ECUAL/PB/src" -I"../Firmware/SOS/inc" -I"../Firmware/SOS/src" -I"../App/testApp/inc" -I"../App/testApp/src"  -O0 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 ECUAL/Led/src/Led.o: ../ECUAL/Led/src/Led.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src" -I"../ECUAL/LCD/inc" -I"../ECUAL/LCD/src" -I"../ECUAL/PB/inc" -I"../ECUAL/PB/src" -I"../Firmware/SOS/inc" -I"../Firmware/SOS/src" -I"../App/testApp/inc" -I"../App/testApp/src"  -O0 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+ECUAL/PB/src/pushButton.o: ../ECUAL/PB/src/pushButton.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src" -I"../ECUAL/LCD/inc" -I"../ECUAL/LCD/src" -I"../ECUAL/PB/inc" -I"../ECUAL/PB/src" -I"../Firmware/SOS/inc" -I"../Firmware/SOS/src" -I"../App/testApp/inc" -I"../App/testApp/src"  -O0 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 ECUAL/Sw_ICU/src/Sw_ICU.o: ../ECUAL/Sw_ICU/src/Sw_ICU.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src" -I"../ECUAL/LCD/inc" -I"../ECUAL/LCD/src" -I"../ECUAL/PB/inc" -I"../ECUAL/PB/src" -I"../Firmware/SOS/inc" -I"../Firmware/SOS/src" -I"../App/testApp/inc" -I"../App/testApp/src"  -O0 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 ECUAL/Ultrasonic/src/Ultrasonic.o: ../ECUAL/Ultrasonic/src/Ultrasonic.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src" -I"../ECUAL/LCD/inc" -I"../ECUAL/LCD/src" -I"../ECUAL/PB/inc" -I"../ECUAL/PB/src" -I"../Firmware/SOS/inc" -I"../Firmware/SOS/src" -I"../App/testApp/inc" -I"../App/testApp/src"  -O0 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-./main.o: .././main.c
+Firmware/SOS/src/SOS.o: ../Firmware/SOS/src/SOS.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src" -I"../ECUAL/LCD/inc" -I"../ECUAL/LCD/src" -I"../ECUAL/PB/inc" -I"../ECUAL/PB/src" -I"../Firmware/SOS/inc" -I"../Firmware/SOS/src" -I"../App/testApp/inc" -I"../App/testApp/src"  -O0 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 MCAL/Gpio/src/Gpio.o: ../MCAL/Gpio/src/Gpio.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src" -I"../ECUAL/LCD/inc" -I"../ECUAL/LCD/src" -I"../ECUAL/PB/inc" -I"../ECUAL/PB/src" -I"../Firmware/SOS/inc" -I"../Firmware/SOS/src" -I"../App/testApp/inc" -I"../App/testApp/src"  -O0 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 MCAL/Interrupts/src/Interrupts.o: ../MCAL/Interrupts/src/Interrupts.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src" -I"../ECUAL/LCD/inc" -I"../ECUAL/LCD/src" -I"../ECUAL/PB/inc" -I"../ECUAL/PB/src" -I"../Firmware/SOS/inc" -I"../Firmware/SOS/src" -I"../App/testApp/inc" -I"../App/testApp/src"  -O0 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 MCAL/PWM/src/PWM.o: ../MCAL/PWM/src/PWM.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-MCAL/Timers/inc/Timers_Lcfg.o: ../MCAL/Timers/inc/Timers_Lcfg.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src" -I"../ECUAL/LCD/inc" -I"../ECUAL/LCD/src" -I"../ECUAL/PB/inc" -I"../ECUAL/PB/src" -I"../Firmware/SOS/inc" -I"../Firmware/SOS/src" -I"../App/testApp/inc" -I"../App/testApp/src"  -O0 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 MCAL/Timers/src/Timers.o: ../MCAL/Timers/src/Timers.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src" -I"../ECUAL/LCD/inc" -I"../ECUAL/LCD/src" -I"../ECUAL/PB/inc" -I"../ECUAL/PB/src" -I"../Firmware/SOS/inc" -I"../Firmware/SOS/src" -I"../App/testApp/inc" -I"../App/testApp/src"  -O0 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+MCAL/Timers/src/Timers_Lcfg.o: ../MCAL/Timers/src/Timers_Lcfg.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src" -I"../ECUAL/LCD/inc" -I"../ECUAL/LCD/src" -I"../ECUAL/PB/inc" -I"../ECUAL/PB/src" -I"../Firmware/SOS/inc" -I"../Firmware/SOS/src" -I"../App/testApp/inc" -I"../App/testApp/src"  -O0 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
 Service/SwDelay/src/SwDelay.o: ../Service/SwDelay/src/SwDelay.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include" -I"../App/CarControl/inc" -I"../App/CarControl/src" -I"../App/CarDirection/inc" -I"../App/CarDirection/src" -I"../Command/inc" -I"../ECUAL/Dc_Motor/inc" -I"../ECUAL/Dc_Motor/src" -I"../ECUAL/Led/inc" -I"../ECUAL/Led/src" -I"../ECUAL/Sw_ICU/inc" -I"../ECUAL/Sw_ICU/src" -I"../ECUAL/Ultrasonic/inc" -I"../ECUAL/Ultrasonic/src" -I"../MCAL/Gpio/inc" -I"../MCAL/Gpio/src" -I"../MCAL/Interrupts/inc" -I"../MCAL/Interrupts/src" -I"../MCAL/MCU/inc" -I"../MCAL/MCU/src" -I"../Service/SwDelay/inc" -I"../Service/SwDelay/src" -I"../MCAL/timers/inc" -I"../MCAL/Timers/src" -I"../MCAL/PWM/inc" -I"../MCAL/PWM/src" -I"../ECUAL/LCD/inc" -I"../ECUAL/LCD/src" -I"../ECUAL/PB/inc" -I"../ECUAL/PB/src" -I"../Firmware/SOS/inc" -I"../Firmware/SOS/src" -I"../App/testApp/inc" -I"../App/testApp/src"  -O0 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 

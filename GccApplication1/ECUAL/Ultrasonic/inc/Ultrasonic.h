@@ -36,5 +36,11 @@ void Ultrasonic_Trigger(void);
  */
 uint32 Ultrasonic_CalculateDistance(void);
 
+/**
+ * Function : Ultrasonic_Display
+ * Description : This function is used to Display the Distance of the Measurement on LCD
+ * Return void
+ */
+void Ultrasonic_Display(void);
 
 #endif /* ULTRASONIC_H_ */

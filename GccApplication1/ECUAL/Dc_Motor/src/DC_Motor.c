@@ -20,7 +20,7 @@
 /*				          Data Types and Defines                        */
 /************************************************************************/
 #define MOTOR_FREQUENCY_IN_HZ 20
-#define DEFAULT_SPEED    50
+#define DEFAULT_SPEED    80
 
 /**
  * Function : DC_Motor_Init
@@ -30,28 +30,27 @@
  */
 void DC_Motor_Init(uint8 Channel)
 {
-	//Timers_timer1_Init(T1_PWM_PhaseCorrect_ICR1_MODE,T1_OC1A_CLEAR,T1_PRESCALER_1024,0,0,0,0,T1_POLLING);
-	//Timers_Init(&timer1_cfg_s);
-	PWM_Init(TIMER1);
+	PWM_Init(TIMER2);
+	PWM_PhaseCorrect(80);
 	switch(Channel)
 	{
 		case DC_MOTOR_CHANNEL_0 : 
-					/* Initiate the Motor pin Direction */
-					Gpio_PinDirection(DC_MOTOR_CHANNEL_0_PORT,DC_MOTOR_CHANNEL_0_PIN_1,SET_OUT);
-					Gpio_PinDirection(DC_MOTOR_CHANNEL_0_PORT,DC_MOTOR_CHANNEL_0_PIN_2,SET_OUT);
+			/* Initiate the Motor pin Direction */
+			Gpio_PinDirection(DC_MOTOR_CHANNEL_0_PORT,DC_MOTOR_CHANNEL_0_PIN_1,SET_OUT);
+			Gpio_PinDirection(DC_MOTOR_CHANNEL_0_PORT,DC_MOTOR_CHANNEL_0_PIN_2,SET_OUT);
 	
-					/* Initiate the Motor pin  */
-					Gpio_PinWrite(DC_MOTOR_CHANNEL_0_PORT,DC_MOTOR_CHANNEL_0_PIN_1,LOW);
-					Gpio_PinWrite(DC_MOTOR_CHANNEL_0_PORT,DC_MOTOR_CHANNEL_0_PIN_2,LOW);
+			/* Initiate the Motor pin  */
+			Gpio_PinWrite(DC_MOTOR_CHANNEL_0_PORT,DC_MOTOR_CHANNEL_0_PIN_1,LOW);
+			Gpio_PinWrite(DC_MOTOR_CHANNEL_0_PORT,DC_MOTOR_CHANNEL_0_PIN_2,LOW);
 		break;
 		case DC_MOTOR_CHANNEL_1 : 
-					/* Initiate the Motor pin Direction */
-					Gpio_PinDirection(DC_MOTOR_CHANNEL_1_PORT,DC_MOTOR_CHANNEL_1_PIN_1,SET_OUT);
-					Gpio_PinDirection(DC_MOTOR_CHANNEL_1_PORT,DC_MOTOR_CHANNEL_1_PIN_2,SET_OUT);
+			/* Initiate the Motor pin Direction */
+			Gpio_PinDirection(DC_MOTOR_CHANNEL_1_PORT,DC_MOTOR_CHANNEL_1_PIN_1,SET_OUT);
+			Gpio_PinDirection(DC_MOTOR_CHANNEL_1_PORT,DC_MOTOR_CHANNEL_1_PIN_2,SET_OUT);
 		
-					/* Initiate the Motor pin  */
-					Gpio_PinWrite(DC_MOTOR_CHANNEL_1_PORT,DC_MOTOR_CHANNEL_1_PIN_1,LOW);
-					Gpio_PinWrite(DC_MOTOR_CHANNEL_1_PORT,DC_MOTOR_CHANNEL_1_PIN_2,LOW);
+			/* Initiate the Motor pin  */
+			Gpio_PinWrite(DC_MOTOR_CHANNEL_1_PORT,DC_MOTOR_CHANNEL_1_PIN_1,LOW);
+			Gpio_PinWrite(DC_MOTOR_CHANNEL_1_PORT,DC_MOTOR_CHANNEL_1_PIN_2,LOW);
 		break;
 		default:
 		break;
@@ -68,7 +67,7 @@ uint8 DC_Motor_Set_Speed(uint8 Speed)
 {
 	if(Speed <= 100)
 	{
-		PWM_PhaseCorrect(Speed,MOTOR_FREQUENCY_IN_HZ);
+		PWM_PhaseCorrect(Speed);
 		return OK;
 	}
 	else
@@ -92,14 +91,14 @@ uint8 DC_Motor_Set_Direction(uint8 Channel , uint8 Direction)
 			switch(Direction)
 			{
 				case DC_MOTOR_FORWARD :
-						/* Set the Motor pin */
-						Gpio_PinWrite(DC_MOTOR_CHANNEL_0_PORT,DC_MOTOR_CHANNEL_0_PIN_1,HIGH);
-						Gpio_PinWrite(DC_MOTOR_CHANNEL_0_PORT,DC_MOTOR_CHANNEL_0_PIN_2,LOW);
+					/* Set the Motor pin */
+					Gpio_PinWrite(DC_MOTOR_CHANNEL_0_PORT,DC_MOTOR_CHANNEL_0_PIN_1,HIGH);
+					Gpio_PinWrite(DC_MOTOR_CHANNEL_0_PORT,DC_MOTOR_CHANNEL_0_PIN_2,LOW);
 				break;
 				case DC_MOTOR_BACK : 
-						/* Set the Motor pin */
-						Gpio_PinWrite(DC_MOTOR_CHANNEL_0_PORT,DC_MOTOR_CHANNEL_0_PIN_1,LOW);
-						Gpio_PinWrite(DC_MOTOR_CHANNEL_0_PORT,DC_MOTOR_CHANNEL_0_PIN_2,HIGH);
+					/* Set the Motor pin */
+					Gpio_PinWrite(DC_MOTOR_CHANNEL_0_PORT,DC_MOTOR_CHANNEL_0_PIN_1,LOW);
+					Gpio_PinWrite(DC_MOTOR_CHANNEL_0_PORT,DC_MOTOR_CHANNEL_0_PIN_2,HIGH);
 				break;
 				default:
 				break;
@@ -120,8 +119,8 @@ uint8 DC_Motor_Set_Direction(uint8 Channel , uint8 Direction)
 				break;
 				default:
 				break;
-		}
-		break;
+			}
+			break;
 	}
 	return OK;
 }
@@ -158,6 +157,5 @@ void DC_Motor_Stop(uint8 Channel)
 void DC_Motor_Start(uint8 Channel)
 {
 	DC_Motor_Set_Speed(DEFAULT_SPEED);
-	Timers_timer1_Start();
 	DC_Motor_Set_Direction(Channel,DC_MOTOR_FORWARD); // Move Forward as A default Direction
 }

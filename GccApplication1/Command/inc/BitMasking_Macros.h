@@ -12,10 +12,10 @@
 /************************************************************************/
 /*               Bit Masking Operations on single Bits                  */
 /************************************************************************/
-#define SET_BIT(reg,index) (reg |= (1<<index))
-#define CLR_BIT(reg,index) (reg &= (~(1<<index)))
-#define TOG_BIT(reg,index) (reg ^= (1<<index))
-#define GET_BIT(reg,index) ((reg >> index) & 0x01)
+#define SET_BIT(reg,gBufferRxIndex) (reg |= (1<<gBufferRxIndex))
+#define CLR_BIT(reg,gBufferRxIndex) (reg &= (~(1<<gBufferRxIndex)))
+#define TOG_BIT(reg,gBufferRxIndex) (reg ^= (1<<gBufferRxIndex))
+#define GET_BIT(reg,gBufferRxIndex) ((reg >> gBufferRxIndex) & 0x01)
 
 /************************************************************************/
 /*               Bit Masking Operations on Nibbles (4 bits)             */

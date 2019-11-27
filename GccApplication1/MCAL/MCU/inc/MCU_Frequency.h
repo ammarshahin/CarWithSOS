@@ -5,7 +5,6 @@
  *  Author: Ammar Shahin
  */ 
 
-
 #ifndef MCU_FREQUENCY_H_
 #define MCU_FREQUENCY_H_
 

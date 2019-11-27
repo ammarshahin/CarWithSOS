@@ -38,8 +38,7 @@ static volatile uint64 raising_time_ns = 0;
 uint8 SwICU_Init(void)
 {
 	Interrupts_ExtInt_Init(INT0,ANY_CHANGE);
-	//Timers_timer2_Init(T2_NORMAL_MODE,T2_OC0_DIS,T2_PRESCALER_1,0,0,T2_INTERRUPT_NORMAL);
-	Timers_Init(&timer2_cfg_s);
+	Timers_Init(&timer0_cfg_s);
 	Interrupts_On();
 	return OK;
 }
@@ -74,7 +73,7 @@ uint8 SwICU_Enable(void)
  */
 uint8 SwICU_Disable(void)
 {
-	Timers_timer2_Stop();
+	Timers_timer0_Stop();
 	return OK;
 }
 
@@ -87,17 +86,16 @@ ISR_T(INT0_vect)
 {
 	if(Falling_Risin_Flag == 0)
 	{
-		Timers_timer2_Set(0);
-		Timers_timer2_Start();
+		Timers_timer0_Set(0);
+		Timers_timer0_Start();
 		numOfOverflows = 0;
 		Falling_Risin_Flag = 1;
 	}
 	else if(Falling_Risin_Flag == 1)
 	{
-		raising_time_ns =  ( ( (numOfOverflows * REGISTER_BIT_MAXVALUE) + Timers_timer2_Read()) * ( F_CPU_PRESCALLER_FACTOR /F_CPU ) );
-		Timers_timer1_Stop();
+		raising_time_ns =  ( ( (numOfOverflows * REGISTER_BIT_MAXVALUE) + Timers_timer0_Read()) * ( F_CPU_PRESCALLER_FACTOR /F_CPU ) );
 		numOfOverflows = 0;
-		Timers_timer2_Set(0);
+		Timers_timer0_Set(0);
 		Falling_Risin_Flag = 0;
 	}
 }
@@ -107,7 +105,7 @@ ISR_T(INT0_vect)
  * Parameter: void 
  * Return : void
  */
-ISR_T(TIMER2_OVF_vect)
+ISR_T(TIMER0_OVF_vect)
 {
 	numOfOverflows++;
 }
